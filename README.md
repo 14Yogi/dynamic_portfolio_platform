@@ -1,6 +1,3 @@
-# dynamic_portfolio_platform
-Fully dynamic animated portfolio platform with user dashboard, CRUD operations, and admin control
-
 # Dynamic Portfolio Platform
 
 A fully dynamic animated portfolio platform where users can create, edit, update, and delete
