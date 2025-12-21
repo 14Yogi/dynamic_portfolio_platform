@@ -1,11 +1,12 @@
-const ProjectCard = ({ title, description, github, live }) => {
+const ProjectCard = ({ project }) => {
   return (
     <div className="project-card">
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <h3>{project.title}</h3>
+      <p>{project.description}</p>
+
       <div className="links">
-        <a href={github} target="_blank">GitHub</a>
-        <a href={live} target="_blank">Live</a>
+        {project.githubUrl && <a href={project.githubUrl}>GitHub</a>}
+        {project.liveUrl && <a href={project.liveUrl}>Live</a>}
       </div>
     </div>
   );

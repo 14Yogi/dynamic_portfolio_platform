@@ -1,19 +1,14 @@
-import { projects } from "../services/mockData";
 import ProjectCard from "../components/ProjectCard";
+import { projects } from "../services/mockData";
 
 const Projects = () => {
   return (
-    <div>
+    <div className="page">
       <h1>Projects</h1>
+
       <div className="projects-grid">
-        {projects.map(project => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            github={project.github}
-            live={project.live}
-          />
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </div>
