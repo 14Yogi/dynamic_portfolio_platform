@@ -4,7 +4,7 @@ import { projects } from "../services/mockData";
 const Projects = () => {
   return (
     <div className="page">
-      <h1>Projects</h1>
+      <h2>My Projects</h2>
 
       <div className="projects-grid">
         {projects.map((project) => (
