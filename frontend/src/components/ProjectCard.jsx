@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
 const ProjectCard = ({ project }) => {
+  const githubLink = project.githubUrl || project.github; // handle both keys
+
   return (
     <motion.div
       className="project-card"
@@ -13,11 +15,12 @@ const ProjectCard = ({ project }) => {
       <p>{project.description}</p>
 
       <div className="links">
-        {project.githubUrl && (
-          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+        {githubLink && (
+          <a href={githubLink} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
         )}
+
         {project.liveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
             Live

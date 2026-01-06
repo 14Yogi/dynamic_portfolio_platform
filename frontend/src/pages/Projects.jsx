@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
-import { projects } from "../services/mockData";
+import { getProjects } from "../services/projectService";
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    setProjects(getProjects());
+  }, []);
+
   return (
     <div className="page">
       <h2>My Projects</h2>

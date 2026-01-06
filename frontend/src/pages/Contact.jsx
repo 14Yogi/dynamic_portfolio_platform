@@ -1,20 +1,51 @@
+import { motion } from "framer-motion";
+import { getContact } from "../services/contactService";
+
 const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message submitted (frontend only)");
-  };
+  const contact = getContact();
 
   return (
-    <div className="page">
+    <motion.div
+      className="page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <h2>Contact Me</h2>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required />
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+      <motion.ul
+        className="contact-list"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.15 },
+          },
+        }}
+      >
+        {Object.entries(contact).map(
+          ([key, value]) =>
+            value && (
+              <motion.li
+                key={key}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {key === "email" && (
+                  <>📧 <a href={`mailto:${value}`}>{value}</a></>
+                )}
+                {key === "phone" && (
+                  <>📱 <a href={`tel:${value}`}>{value}</a></>
+                )}
+                {key !== "email" && key !== "phone" && (
+                  <>🔗 <a href={value} target="_blank">{key}</a></>
+                )}
+              </motion.li>
+            )
+        )}
+      </motion.ul>
+    </motion.div>
   );
 };
 

@@ -126,3 +126,34 @@ body {
 .contact-form button:hover {
   background: #0056b3;
 }
+.form {
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.project-card button {
+  margin-top: 10px;
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
